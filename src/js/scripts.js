@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { Side } from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 
 const renderer = new THREE.WebGLRenderer();
@@ -29,6 +30,15 @@ const boxMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00});
 const box = new THREE.Mesh(boxGeometry,boxMaterial);
 
 scene.add(box);
+
+const planeGeometry = new THREE.PlaneGeometry(10, 10);
+const planeMaterial = new THREE.MeshBasicMaterial({color: 0xbbaa66, side : THREE.DoubleSide});
+const plane = new THREE.Mesh(planeGeometry, planeMaterial)
+plane.rotation.x = -0.5*Math.PI;
+scene.add(plane);
+
+const gridHelper = new THREE.GridHelper(10);
+scene.add(gridHelper);
 
 const animate = (time) => {
     box.rotation.x = time/1000;

@@ -550,6 +550,16 @@ const boxMaterial = new _three.MeshBasicMaterial({
 });
 const box = new _three.Mesh(boxGeometry, boxMaterial);
 scene.add(box);
+const planeGeometry = new _three.PlaneGeometry(10, 10);
+const planeMaterial = new _three.MeshBasicMaterial({
+    color: 0xbbaa66,
+    side: _three.DoubleSide
+});
+const plane = new _three.Mesh(planeGeometry, planeMaterial);
+plane.rotation.x = -0.5 * Math.PI;
+scene.add(plane);
+const gridHelper = new _three.GridHelper(10);
+scene.add(gridHelper);
 const animate = (time)=>{
     box.rotation.x = time / 1000;
     box.rotation.y = time / 1000;
