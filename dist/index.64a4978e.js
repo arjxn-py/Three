@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"lIRW8":[function(require,module,exports) {
+})({"9KIpd":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -538,7 +538,16 @@ const renderer = new _three.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 const scene = new _three.Scene();
+scene.background = new _three.Color(0xff0000);
 const camera = new _three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const geometry = new _three.PlaneGeometry(1, 1);
+const material = new _three.MeshBasicMaterial({
+    color: 0xffff00,
+    side: _three.DoubleSide
+});
+const dplane = new _three.Mesh(geometry, material);
+scene.add(dplane);
+dplane.position.set(3, 3, 3);
 const orbit = new (0, _orbitControls.OrbitControls)(camera, renderer.domElement);
 const axesHelper = new _three.AxesHelper(5);
 scene.add(axesHelper);
@@ -564,6 +573,9 @@ const animate = (time)=>{
     box.rotation.x = time / 1000;
     box.rotation.y = time / 1000;
     box.rotation.z = time / 1000;
+    dplane.rotation.x = time / 1000;
+    dplane.rotation.y = time / 1000;
+    dplane.rotation.z = time / 1000;
     renderer.render(scene, camera);
 };
 renderer.setAnimationLoop(animate);
@@ -29743,7 +29755,7 @@ if (typeof window !== "undefined") {
     else window.__THREE__ = REVISION;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"4tJTe"}],"4tJTe":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"1LD0P"}],"1LD0P":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -30457,6 +30469,6 @@ class MapControls extends OrbitControls {
     }
 }
 
-},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"4tJTe"}]},["lIRW8","goJYj"], "goJYj", "parcelRequiree385")
+},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"1LD0P"}]},["9KIpd","goJYj"], "goJYj", "parcelRequiree385")
 
 //# sourceMappingURL=index.64a4978e.js.map
