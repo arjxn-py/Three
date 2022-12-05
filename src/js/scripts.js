@@ -1,11 +1,13 @@
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 
-const renderer = new THREE.WebGLRenderer();
+
+const canvas = document.getElementById('myCanvas')
+const renderer = new THREE.WebGLRenderer({canvas: canvas});
 
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-document.body.appendChild(renderer.domElement);
+// document.body.appendChild(renderer.domElement);
 
 
 const scene = new THREE.Scene();

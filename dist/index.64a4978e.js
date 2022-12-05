@@ -534,9 +534,12 @@ function hmrAcceptRun(bundle, id) {
 },{}],"goJYj":[function(require,module,exports) {
 var _three = require("three");
 var _orbitControls = require("three/examples/jsm/controls/OrbitControls");
-const renderer = new _three.WebGLRenderer();
+const canvas = document.getElementById("myCanvas");
+const renderer = new _three.WebGLRenderer({
+    canvas: canvas
+});
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+// document.body.appendChild(renderer.domElement);
 const scene = new _three.Scene();
 scene.background = new _three.Color(0xbbbfff);
 const camera = new _three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);

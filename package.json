@@ -19,6 +19,7 @@
   "homepage": "https://github.com/arjxn-py/Three#readme",
   "dependencies": {
     "lil-gui": "^0.17.0",
+    "requirejs": "^2.3.6",
     "three": "^0.146.0"
   }
 }
